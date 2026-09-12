@@ -1,0 +1,102 @@
+/* ========================================
+   RESET
+======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+/* ========================================
+   BODY
+======================================== */
+
+body {
+    font-family: Arial, sans-serif;
+    color: #2b241e;
+    min-height: 100vh;
+
+    background-color: #f5efe7;
+
+    background-image:
+
+        /* Cahaya kiri atas */
+        radial-gradient(
+            circle at 8% 8%,
+            rgba(190, 130, 65, 0.18),
+            transparent 25%
+        ),
+
+        /* Cahaya kanan bawah */
+        radial-gradient(
+            circle at 92% 90%,
+            rgba(130, 90, 50, 0.14),
+            transparent 28%
+        ),
+
+        /* Cahaya tengah */
+        radial-gradient(
+            circle at 50% 45%,
+            rgba(255, 255, 255, 0.7),
+            transparent 45%
+        ),
+
+        /* Pola geometris */
+        linear-gradient(
+            135deg,
+            rgba(120, 80, 40, 0.035) 25%,
+            transparent 25%
+        ),
+
+        linear-gradient(
+            315deg,
+            rgba(120, 80, 40, 0.035) 25%,
+            transparent 25%
+        );
+
+    background-size:
+        auto,
+        auto,
+        auto,
+        90px 90px,
+        90px 90px;
+
+    background-attachment: fixed;
+}
+
+
+/* ========================================
+   IMAGE
+======================================== */
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+
+/* ========================================
+   LINK
+======================================== */
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* ========================================
+   CONTAINER
+======================================== */
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
