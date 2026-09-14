@@ -293,3 +293,42 @@ Button
         display: none;
     }
 }
+
+/* ========================================
+   PAGE TRANSITION
+======================================== */
+
+body {
+    animation: pageEnter 0.5s ease;
+}
+
+@keyframes pageEnter {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Saat pindah halaman */
+
+body.page-exit {
+    animation: pageExit 0.35s ease forwards;
+}
+
+@keyframes pageExit {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+}

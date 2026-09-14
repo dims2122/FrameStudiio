@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>Berikan Review</title>
+
+    <link rel="stylesheet" href="review.css">
+</head>
+
+
+<body>
+
+    <main class="review-container">
+
+        <section class="review-card">
+
+            <div class="review-header">
+
+                <span class="review-icon">☆</span>
+
+                <h1> Bagaimana Pengalamanmuu</h1>
+
+                <p> 
+                    bantu kami menjadi lebih baik dengan memberikan review
+                    tentang pengalamanmu
+                </p>
+
+            </div>
+
+
+            <form id="reviewForm">
+
+
+                <div class="from-group">
+                    <label for="name">Nama</label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder="Masukan nama kamu"
+                        required
+                    >
+                </div>
+
+
+                <div class="form-group"></div>
+
+                <label>Berikan rating</label>
+
+                <div class="rating">
+
+
+                    <input 
+                        type="radio"
+                        id="star5"
+                        name="rating"
+                        value="5">
+
+                        <label for="star5">★</label>
+                    
+                    <input 
+                        type="radio"
+                        id="star4"
+                        name="rating"
+                        value="4">
+
+                        <label for="star4">★</label>
+
+
+                    <input 
+                        type="radio"
+                        id="star3"
+                        name="rating"
+                        value="3">
+
+                        <label for="star3">★</label>
+
+                    <input 
+                        type="radio"
+                        id="star2"
+                        name="rating"
+                        value="2">
+
+                        <label for="star2">★</label>
+
+                    <input 
+                        type="radio"
+                        id="star1"
+                        name="rating"
+                        value="1">
+
+                        <label for="star1">★</label>
+                        
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="review">Review kamu</label>
+
+                <textarea 
+                    id="review"
+                    name="review"
+                    rows="5"
+                    placeholder="Ceritakan Pengalaman mu...."
+                    required
+                    ></textarea>
+            </div>
+
+
+            <button type="submit">
+                Kirim review
+            </button>
+
+            </form>
+
+        </section>
+
+    </main>
+
+    <div id="toast" class="toast">
+
+    <div class="toast-icon">
+        <i class="fa-solid fa-check"></i>
+    </div>
+
+    <div class="toast-content">
+
+        <strong>Berhasil!</strong>
+
+        <span>
+            Review berhasil dikirim.
+        </span>
+
+    </div>
+
+    <button
+        id="toastClose"
+        class="toast-close"
+        type="button"
+    >
+        <i class="fa-solid fa-xmark"></i>
+    </button>
+
+</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="review.js"></script>
+    
+</body>
+</html>

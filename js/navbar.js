@@ -1,4 +1,9 @@
+// ========================================
+// LOAD COMPONENT
+// ========================================
+
 async function loadComponent(id, file) {
+
     const element = document.getElementById(id);
 
     if (!element) {
@@ -7,45 +12,51 @@ async function loadComponent(id, file) {
     }
 
     try {
+
         const response = await fetch(file);
 
         if (!response.ok) {
-            throw new Error("Gagal memuat: " + file);
+            throw new Error(
+                "Gagal memuat: " + file
+            );
         }
 
         const html = await response.text();
+
         element.innerHTML = html;
 
     } catch (error) {
+
         console.error("Navbar error:", error);
+
     }
 }
 
 
+// ========================================
+// LOAD NAVBAR
+// ========================================
+
 async function loadNavbar() {
 
-    // ========================================
-    // BASE PATH GITHUB PAGES
-    // ========================================
-
-    const BASE_URL = "/FrameStudio/";
-
-    // Cek apakah sedang di dalam folder pages
-    const isSubPage = window.location.pathname.includes("/pages/");
-
-    // Path komponen navbar
-    const componentPath = isSubPage
-        ? "../components/navbar.html"
-        : "components/navbar.html";
+    // Cek apakah sedang berada di folder pages
+    const isSubPage =
+        window.location.pathname.includes("/pages/");
 
 
     // ========================================
-    // LOAD NAVBAR
+    // PATH COMPONENT
     // ========================================
 
+    const basePath = isSubPage
+        ? "../"
+        : "";
+
+
+    // Load navbar
     await loadComponent(
         "navbar",
-        componentPath
+        basePath + "components/navbar.html"
     );
 
 
@@ -53,10 +64,15 @@ async function loadNavbar() {
     // LOGO
     // ========================================
 
-    const logo = document.querySelector("#navbar [data-logo]");
+    const logo =
+        document.querySelector("#navbar [data-logo]");
 
     if (logo) {
-        logo.src = BASE_URL + "assets/images/logo/logo.png";
+
+        logo.src =
+            basePath +
+            "assets/images/logo/logo.png";
+
     }
 
 
@@ -66,59 +82,119 @@ async function loadNavbar() {
 
     const pages = {
 
-        home: "index.html",
+        home:
+            "index.html",
 
-        product: "pages/product.html",
+        product:
+            "pages/product.html",
 
-        about: "pages/tentang.html",
+        about:
+            "pages/tentang.html",
 
-        gallery: "pages/gallery.html",
+        gallery:
+            "pages/gallery.html",
 
-        review: "pages/reviewlist.html",
+        review:
+            "pages/reviewlist.html",
 
-        contact: "pages/contact.html"
+        contact:
+            "pages/contact.html"
 
     };
 
+
+    // ========================================
+    // SET LINK
+    // ========================================
 
     document
         .querySelectorAll("#navbar [data-page]")
         .forEach(link => {
 
-            const page = link.dataset.page;
+            const page =
+                link.dataset.page;
 
-            if (pages[page]) {
-                link.href = BASE_URL + pages[page];
+
+            if (!pages[page]) {
+                return;
+            }
+
+
+            // Jika di halaman utama
+            if (!isSubPage) {
+
+                link.href =
+                    pages[page];
+
+            }
+
+            // Jika di dalam folder pages
+            else {
+
+                if (page === "home") {
+
+                    link.href =
+                        "../index.html";
+
+                } else {
+
+                    link.href =
+                        "../" + pages[page];
+
+                }
+
             }
 
         });
 
 
     // ========================================
-    // HAMBURGER MENU
+    // HAMBURGER
     // ========================================
 
     initializeNavbar();
+
 }
 
+
+// ========================================
+// HAMBURGER MENU
+// ========================================
 
 function initializeNavbar() {
 
-    const toggle = document.getElementById("navbarToggle");
-    const menu = document.getElementById("navbarMenu");
+    const toggle =
+        document.getElementById("navbarToggle");
+
+    const menu =
+        document.getElementById("navbarMenu");
+
 
     if (!toggle || !menu) {
-        console.error("Navbar menu tidak ditemukan");
+
+        console.error(
+            "Navbar menu tidak ditemukan"
+        );
+
         return;
     }
 
-    toggle.addEventListener("click", function () {
 
-        menu.classList.toggle("active");
+    toggle.addEventListener(
+        "click",
+        function () {
 
-    });
+            menu.classList.toggle("active");
+
+        }
+    );
+
 }
 
+
+// ========================================
+// START
+// ========================================
 
 document.addEventListener(
     "DOMContentLoaded",
