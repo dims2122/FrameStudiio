@@ -1,0 +1,194 @@
+/* ========================================
+   REVIEW LIST
+======================================== */
+
+.review-section {
+    padding: 90px 0;
+    background: #f8f4ef;
+}
+
+.review-header {
+    max-width: 650px;
+    margin: 0 auto 45px;
+    text-align: center;
+}
+
+.review-label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #9a6338;
+}
+
+.review-header h1 {
+    margin-bottom: 14px;
+    font-size: 34px;
+    line-height: 1.2;
+    color: #30251e;
+}
+
+.review-header h1 span {
+    color: #956039;
+}
+
+.review-header p {
+    margin: 0;
+    line-height: 1.7;
+    color: #75685e;
+}
+
+
+/* LIST REVIEW */
+
+.review-list {
+    max-width: 1100px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+
+/* CARD REVIEW */
+
+.review-card {
+    padding: 25px;
+
+    background: #ffffff;
+    border: 1px solid rgba(143, 93, 53, 0.10);
+    border-radius: 16px;
+
+    box-shadow: 0 10px 30px rgba(80, 50, 30, 0.08);
+
+    transition: transform .3s ease,
+                box-shadow .3s ease;
+}
+
+.review-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow: 0 15px 35px rgba(80, 50, 30, 0.12);
+}
+
+
+/* HEADER CARD */
+
+.review-card-header {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+
+    margin-bottom: 18px;
+}
+
+
+/* AVATAR */
+
+.review-avatar {
+    width: 46px;
+    height: 46px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background: #eee3d7;
+    color: #8f5d35;
+
+    font-size: 17px;
+    font-weight: 700;
+}
+
+
+/* NAMA */
+
+.review-card h3 {
+    margin: 0 0 5px;
+
+    font-size: 16px;
+    color: #30251e;
+}
+
+
+/* BINTANG */
+
+.review-stars {
+    color: #d39135;
+
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+
+
+/* ISI REVIEW */
+
+.review-card > p {
+    margin: 0;
+
+    color: #75685e;
+
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 900px) {
+
+    .review-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .review-section {
+        padding: 65px 20px;
+    }
+
+    .review-header h1 {
+        font-size: 28px;
+    }
+
+    .review-list {
+        grid-template-columns: 1fr;
+    }
+
+    .review-card {
+        padding: 22px;
+    }
+
+}
+
+
+.footer {
+    padding: 25px 20px;
+
+    text-align: center;
+
+    background: #2f251e;
+
+    color: #cfc3b9;
+}
+
+.footer p {
+    margin: 0;
+
+    font-size: 13px;
+}
+
+.footer strong {
+    color: #ffffff;
+}

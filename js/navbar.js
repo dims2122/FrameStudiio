@@ -62,7 +62,7 @@ async function loadNavbar() {
 
         gallery: "pages/gallery.html",
 
-        contact: "pages/contact.html"
+        review: "pages/reviewlist.html"
 
     };
 
