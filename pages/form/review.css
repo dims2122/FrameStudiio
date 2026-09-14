@@ -347,3 +347,320 @@ button:active {
     }
 
 }
+
+/* ========================================
+   SUCCESS POPUP
+   ======================================== */
+
+.success-popup {
+    position: fixed;
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    visibility: hidden;
+    opacity: 0;
+
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease;
+
+    z-index: 9999;
+}
+
+
+/* POPUP AKTIF */
+
+.success-popup.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+
+/* BACKGROUND */
+
+.success-overlay {
+    position: absolute;
+    inset: 0;
+
+    background: rgba(15, 23, 42, 0.55);
+
+    backdrop-filter: blur(5px);
+}
+
+
+/* CARD */
+
+.success-card {
+    position: relative;
+
+    width: 100%;
+    max-width: 420px;
+
+    background: #ffffff;
+
+    border-radius: 22px;
+
+    padding: 32px 28px;
+
+    text-align: center;
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.2);
+
+    transform: translateY(20px) scale(0.95);
+
+    transition:
+        transform 0.3s ease;
+}
+
+
+.success-popup.show .success-card {
+    transform: translateY(0) scale(1);
+}
+
+
+/* CLOSE */
+
+.success-close {
+    position: absolute;
+
+    top: 14px;
+    right: 16px;
+
+    width: 34px;
+    height: 34px;
+
+    border: none;
+
+    background: #f1f5f9;
+
+    border-radius: 50%;
+
+    font-size: 24px;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    color: #475569;
+
+    transition: 0.2s;
+}
+
+
+.success-close:hover {
+    background: #e2e8f0;
+}
+
+
+/* SUCCESS ICON */
+
+.success-icon {
+    width: 68px;
+    height: 68px;
+
+    margin: 0 auto 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #16a34a;
+
+    color: white;
+
+    font-size: 34px;
+    font-weight: bold;
+
+    box-shadow:
+        0 8px 25px rgba(22, 163, 74, 0.25);
+}
+
+
+/* TITLE */
+
+.success-card h2 {
+    margin: 0 0 8px;
+
+    font-size: 24px;
+
+    color: #111827;
+}
+
+
+/* DESCRIPTION */
+
+.success-card > p {
+    margin: 0 0 22px;
+
+    color: #64748b;
+
+    font-size: 15px;
+
+    line-height: 1.6;
+}
+
+
+/* GOOGLE BOX */
+
+.google-box {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    text-align: left;
+
+    padding: 14px;
+
+    margin-bottom: 16px;
+
+    background: #f8fafc;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 14px;
+}
+
+
+/* GOOGLE ICON */
+
+.google-icon {
+    flex-shrink: 0;
+
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: white;
+
+    border-radius: 50%;
+
+    font-size: 22px;
+    font-weight: bold;
+
+    box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+
+/* GOOGLE TEXT */
+
+.google-text {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 4px;
+}
+
+
+.google-text strong {
+    font-size: 14px;
+
+    color: #1e293b;
+}
+
+
+.google-text span {
+    font-size: 12px;
+
+    line-height: 1.5;
+
+    color: #64748b;
+}
+
+
+/* GOOGLE BUTTON */
+
+.google-review-button {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+
+    min-height: 48px;
+
+    padding: 12px 18px;
+
+    border-radius: 12px;
+
+    background: #111827;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+}
+
+
+.google-review-button:hover {
+    background: #1f2937;
+
+    transform: translateY(-2px);
+}
+
+
+/* DONE BUTTON */
+
+.success-done {
+    width: 100%;
+
+    margin-top: 10px;
+
+    padding: 11px;
+
+    border: none;
+
+    background: transparent;
+
+    color: #64748b;
+
+    font-size: 14px;
+
+    cursor: pointer;
+}
+
+
+.success-done:hover {
+    color: #111827;
+}
+
+
+/* ========================================
+   MOBILE
+   ======================================== */
+
+@media (max-width: 480px) {
+
+    .success-card {
+        padding: 28px 20px;
+
+        border-radius: 20px;
+    }
+
+    .success-card h2 {
+        font-size: 22px;
+    }
+
+}

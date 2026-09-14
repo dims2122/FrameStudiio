@@ -18,33 +18,40 @@ const supabaseClient = supabase.createClient(
 // ELEMENT
 // ========================================
 
-const reviewForm = document.getElementById("reviewForm");
+const reviewForm =
+    document.getElementById("reviewForm");
 
-const nameInput = document.getElementById("name");
+const nameInput =
+    document.getElementById("name");
 
-const reviewInput = document.getElementById("review");
+const reviewInput =
+    document.getElementById("review");
 
 const ratingInputs =
-    document.querySelectorAll('input[name="rating"]');
+    document.querySelectorAll(
+        'input[name="rating"]'
+    );
 
-const ratingError =
-    document.getElementById("ratingError");
 
-const toast =
-    document.getElementById("toast");
+// POPUP
 
-const toastClose =
-    document.getElementById("toastClose");
+const successPopup =
+    document.getElementById("successPopup");
+
+const successClose =
+    document.getElementById("successClose");
+
+const successDone =
+    document.getElementById("successDone");
 
 
 // ========================================
-// SUBMIT FORM
+// SUBMIT REVIEW
 // ========================================
 
 reviewForm.addEventListener("submit", async (e) => {
 
-    // PENTING:
-    // Mencegah form masuk ke URL
+    // MENCEGAH FORM MASUK KE URL
     e.preventDefault();
 
 
@@ -52,9 +59,11 @@ reviewForm.addEventListener("submit", async (e) => {
     // AMBIL DATA
     // ========================================
 
-    const name = nameInput.value.trim();
+    const name =
+        nameInput.value.trim();
 
-    const message = reviewInput.value.trim();
+    const message =
+        reviewInput.value.trim();
 
     const selectedRating =
         document.querySelector(
@@ -67,19 +76,19 @@ reviewForm.addEventListener("submit", async (e) => {
     // ========================================
 
     if (!name) {
-        showError("Nama wajib diisi.");
+        alert("Nama wajib diisi.");
         return;
     }
 
 
     if (!selectedRating) {
-        showError("Silakan pilih rating.");
+        alert("Silakan pilih rating.");
         return;
     }
 
 
     if (!message) {
-        showError("Review wajib diisi.");
+        alert("Review wajib diisi.");
         return;
     }
 
@@ -88,14 +97,8 @@ reviewForm.addEventListener("submit", async (e) => {
         Number(selectedRating.value);
 
 
-    if (rating < 1 || rating > 5) {
-        showError("Rating tidak valid.");
-        return;
-    }
-
-
     // ========================================
-    // BUTTON LOADING
+    // BUTTON
     // ========================================
 
     const button =
@@ -104,49 +107,53 @@ reviewForm.addEventListener("submit", async (e) => {
         );
 
     button.disabled = true;
-    button.textContent = "Mengirim...";
+
+    button.textContent =
+        "Mengirim...";
 
 
     try {
 
-        console.log("Data yang dikirim:", {
-            name: name,
-            rating: rating,
-            message: message
+        console.log("Mengirim review:", {
+            name,
+            rating,
+            message
         });
 
 
         // ========================================
-        // INSERT KE SUPABASE
+        // INSERT SUPABASE
         // ========================================
 
-        const { data, error } =
-            await supabaseClient
-                .from("reviews")
-                .insert([
-                    {
-                        name: name,
-                        rating: rating,
-                        message: message
-                    }
-                ])
-                .select();
+        const {
+            data,
+            error
+        } = await supabaseClient
+            .from("reviews")
+            .insert([
+                {
+                    name: name,
+                    rating: rating,
+                    message: message
+                }
+            ])
+            .select();
 
 
         // ========================================
-        // CEK ERROR
+        // ERROR
         // ========================================
 
         if (error) {
 
             console.error(
-                "Supabase Error:",
+                "SUPABASE ERROR:",
                 error
             );
 
-            showError(
-                error.message ||
-                "Review gagal dikirim."
+            alert(
+                "Review gagal dikirim:\n\n" +
+                error.message
             );
 
             return;
@@ -158,7 +165,7 @@ reviewForm.addEventListener("submit", async (e) => {
         // ========================================
 
         console.log(
-            "Review berhasil masuk:",
+            "Review berhasil:",
             data
         );
 
@@ -167,26 +174,31 @@ reviewForm.addEventListener("submit", async (e) => {
         reviewForm.reset();
 
 
-        // Tampilkan toast
-        showToast();
+        // ========================================
+        // TAMPILKAN POPUP
+        // ========================================
+
+        successPopup.classList.add("show");
 
 
     } catch (error) {
 
         console.error(
-            "Error:",
+            "ERROR:",
             error
         );
 
-        showError(
-            error.message ||
-            "Terjadi kesalahan saat mengirim review."
+        alert(
+            "Terjadi kesalahan:\n\n" +
+            error.message
         );
 
     } finally {
 
         button.disabled = false;
-        button.textContent = "Kirim review";
+
+        button.textContent =
+            "Kirim review";
 
     }
 
@@ -194,51 +206,48 @@ reviewForm.addEventListener("submit", async (e) => {
 
 
 // ========================================
-// ERROR
+// TUTUP POPUP
 // ========================================
 
-function showError(message) {
+// ========================================
+// TUTUP POPUP
+// ========================================
 
-    if (ratingError) {
+function closeSuccessPopup() {
 
-        ratingError.textContent = message;
+    successPopup.classList.remove("show");
 
-        return;
+}
+
+
+successClose.addEventListener(
+    "click",
+    closeSuccessPopup
+);
+
+
+// ========================================
+// TOMBOL SELESAI → LIHAT REVIEW
+// ========================================
+
+successDone.addEventListener(
+    "click",
+    () => {
+
+        window.location.href =
+            "../reviewlist.html";
+
     }
-
-    alert(message);
-}
+);
 
 
 // ========================================
-// TOAST
+// KLIK BACKGROUND
 // ========================================
 
-function showToast() {
-
-    if (!toast) return;
-
-    toast.classList.add("show");
-
-    setTimeout(() => {
-
-        toast.classList.remove("show");
-
-    }, 4000);
-
-}
-
-
-// ========================================
-// CLOSE TOAST
-// ========================================
-
-if (toastClose) {
-
-    toastClose.addEventListener("click", () => {
-
-        toast.classList.remove("show");
-
-    });
-
-}
+successPopup
+    .querySelector(".success-overlay")
+    .addEventListener(
+        "click",
+        closeSuccessPopup
+    );
