@@ -1,58 +1,43 @@
 // ========================================
 // NAVBAR.JS
-// Otomatis: GitHub Pages + Live Server
+// GitHub Pages + Live Server
 // ========================================
-
 
 // ========================================
 // MENENTUKAN BASE PATH WEBSITE
 // ========================================
 
 function getBasePath() {
+    const script = document.querySelector(
+        'script[src*="navbar.js"]'
+    );
 
-    // Cari script navbar.js yang sedang digunakan
-    const scripts = document.querySelectorAll("script");
-
-    for (const script of scripts) {
-
-        const src = script.getAttribute("src");
-
-        if (!src) continue;
-
-        if (src.includes("/js/navbar.js") || src.includes("js/navbar.js")) {
-
-            // Ambil URL lengkap navbar.js
-            const url = new URL(src, window.location.href);
-
-            // Contoh GitHub:
-            // https://dims2122.github.io/FrameStudio/js/navbar.js
-            //
-            // hasil:
-            // /FrameStudio
-
-            const match = url.pathname.match(/^(.+)\/js\/navbar\.js$/);
-
-            if (match) {
-                return match[1];
-            }
-
-            // Live Server:
-            // http://127.0.0.1:5500/js/navbar.js
-            //
-            // hasil:
-            // ""
-
-            return "";
-        }
+    if (!script) {
+        return "";
     }
 
-    return "";
+    const scriptURL = new URL(
+        script.src,
+        window.location.href
+    );
+
+    // navbar.js berada di:
+    // /js/navbar.js
+    //
+    // maka base website:
+    // /
+
+    // atau GitHub:
+    // /RosterCilegon/js/navbar.js
+    //
+    // maka base website:
+    // /RosterCilegon/
+
+    return new URL(
+        "../",
+        scriptURL
+    ).pathname.replace(/\/$/, "");
 }
-
-
-// ========================================
-// BASE PATH
-// ========================================
 
 const BASE_PATH = getBasePath();
 
@@ -66,12 +51,10 @@ async function loadComponent(id, file) {
     const element = document.getElementById(id);
 
     if (!element) {
-
         console.error(
             "Element tidak ditemukan:",
             id
         );
-
         return;
     }
 
@@ -82,7 +65,6 @@ async function loadComponent(id, file) {
         );
 
         if (!response.ok) {
-
             throw new Error(
                 `Gagal memuat ${file} (${response.status})`
             );
@@ -95,9 +77,10 @@ async function loadComponent(id, file) {
     } catch (error) {
 
         console.error(
-            "Navbar error:",
+            "Component error:",
             error
         );
+
     }
 }
 
@@ -118,16 +101,16 @@ async function loadNavbar() {
     // LOGO
     // ========================================
 
-    const logo =
-        document.querySelector(
-            "#navbar [data-logo]"
-        );
+    const logo = document.querySelector(
+        "#navbar [data-logo]"
+    );
 
     if (logo) {
 
         logo.src =
             BASE_PATH +
             "/assets/images/logo/logo.png";
+
     }
 
 
@@ -150,10 +133,8 @@ async function loadNavbar() {
             "pages/gallery.html",
 
         review:
-            "pages/reviewlist.html",
+            "pages/reviewlist.html"
 
-        contact:
-            "pages/contact.html"
     };
 
 
@@ -166,15 +147,9 @@ async function loadNavbar() {
             const page =
                 link.dataset.page;
 
-
             if (!pages[page]) {
                 return;
             }
-
-
-            // ========================================
-            // BUAT LINK OTOMATIS
-            // ========================================
 
             link.href =
                 BASE_PATH +
@@ -189,6 +164,7 @@ async function loadNavbar() {
     // ========================================
 
     initializeNavbar();
+
 }
 
 
@@ -208,7 +184,6 @@ function initializeNavbar() {
             "navbarMenu"
         );
 
-
     if (!toggle || !menu) {
 
         console.error(
@@ -219,7 +194,6 @@ function initializeNavbar() {
     }
 
 
-    // Hindari event listener terpasang dua kali
     if (
         toggle.dataset.navbarInitialized === "true"
     ) {
@@ -240,6 +214,7 @@ function initializeNavbar() {
 
         }
     );
+
 }
 
 
