@@ -1,4 +1,63 @@
 // ========================================
+// NAVBAR.JS
+// Otomatis: GitHub Pages + Live Server
+// ========================================
+
+
+// ========================================
+// MENENTUKAN BASE PATH WEBSITE
+// ========================================
+
+function getBasePath() {
+
+    // Cari script navbar.js yang sedang digunakan
+    const scripts = document.querySelectorAll("script");
+
+    for (const script of scripts) {
+
+        const src = script.getAttribute("src");
+
+        if (!src) continue;
+
+        if (src.includes("/js/navbar.js") || src.includes("js/navbar.js")) {
+
+            // Ambil URL lengkap navbar.js
+            const url = new URL(src, window.location.href);
+
+            // Contoh GitHub:
+            // https://dims2122.github.io/FrameStudio/js/navbar.js
+            //
+            // hasil:
+            // /FrameStudio
+
+            const match = url.pathname.match(/^(.+)\/js\/navbar\.js$/);
+
+            if (match) {
+                return match[1];
+            }
+
+            // Live Server:
+            // http://127.0.0.1:5500/js/navbar.js
+            //
+            // hasil:
+            // ""
+
+            return "";
+        }
+    }
+
+    return "";
+}
+
+
+// ========================================
+// BASE PATH
+// ========================================
+
+const BASE_PATH = getBasePath();
+
+
+// ========================================
 // LOAD COMPONENT
 // ========================================
 
@@ -7,17 +66,25 @@ async function loadComponent(id, file) {
     const element = document.getElementById(id);
 
     if (!element) {
-        console.error("Element tidak ditemukan:", id);
+
+        console.error(
+            "Element tidak ditemukan:",
+            id
+        );
+
         return;
     }
 
     try {
 
-        const response = await fetch(file);
+        const response = await fetch(
+            BASE_PATH + "/" + file
+        );
 
         if (!response.ok) {
+
             throw new Error(
-                "Gagal memuat: " + file
+                `Gagal memuat ${file} (${response.status})`
             );
         }
 
@@ -27,8 +94,10 @@ async function loadComponent(id, file) {
 
     } catch (error) {
 
-        console.error("Navbar error:", error);
-
+        console.error(
+            "Navbar error:",
+            error
+        );
     }
 }
 
@@ -39,24 +108,9 @@ async function loadComponent(id, file) {
 
 async function loadNavbar() {
 
-    // Cek apakah sedang berada di folder pages
-    const isSubPage =
-        window.location.pathname.includes("/pages/");
-
-
-    // ========================================
-    // PATH COMPONENT
-    // ========================================
-
-    const basePath = isSubPage
-        ? "../"
-        : "";
-
-
-    // Load navbar
     await loadComponent(
         "navbar",
-        basePath + "components/navbar.html"
+        "components/navbar.html"
     );
 
 
@@ -65,14 +119,15 @@ async function loadNavbar() {
     // ========================================
 
     const logo =
-        document.querySelector("#navbar [data-logo]");
+        document.querySelector(
+            "#navbar [data-logo]"
+        );
 
     if (logo) {
 
         logo.src =
-            basePath +
-            "assets/images/logo/logo.png";
-
+            BASE_PATH +
+            "/assets/images/logo/logo.png";
     }
 
 
@@ -97,16 +152,15 @@ async function loadNavbar() {
         review:
             "pages/reviewlist.html",
 
-
+        contact:
+            "pages/contact.html"
     };
 
 
-    // ========================================
-    // SET LINK
-    // ========================================
-
     document
-        .querySelectorAll("#navbar [data-page]")
+        .querySelectorAll(
+            "#navbar [data-page]"
+        )
         .forEach(link => {
 
             const page =
@@ -118,30 +172,14 @@ async function loadNavbar() {
             }
 
 
-            // Jika di halaman utama
-            if (!isSubPage) {
+            // ========================================
+            // BUAT LINK OTOMATIS
+            // ========================================
 
-                link.href =
-                    pages[page];
-
-            }
-
-            // Jika di dalam folder pages
-            else {
-
-                if (page === "home") {
-
-                    link.href =
-                        "../index.html";
-
-                } else {
-
-                    link.href =
-                        "../" + pages[page];
-
-                }
-
-            }
+            link.href =
+                BASE_PATH +
+                "/" +
+                pages[page];
 
         });
 
@@ -151,7 +189,6 @@ async function loadNavbar() {
     // ========================================
 
     initializeNavbar();
-
 }
 
 
@@ -162,10 +199,14 @@ async function loadNavbar() {
 function initializeNavbar() {
 
     const toggle =
-        document.getElementById("navbarToggle");
+        document.getElementById(
+            "navbarToggle"
+        );
 
     const menu =
-        document.getElementById("navbarMenu");
+        document.getElementById(
+            "navbarMenu"
+        );
 
 
     if (!toggle || !menu) {
@@ -178,23 +219,39 @@ function initializeNavbar() {
     }
 
 
+    // Hindari event listener terpasang dua kali
+    if (
+        toggle.dataset.navbarInitialized === "true"
+    ) {
+        return;
+    }
+
+
+    toggle.dataset.navbarInitialized = "true";
+
+
     toggle.addEventListener(
         "click",
         function () {
 
-            menu.classList.toggle("active");
+            menu.classList.toggle(
+                "active"
+            );
 
         }
     );
-
 }
 
 
 // ========================================
-// START
+// JALANKAN NAVBAR
 // ========================================
 
 document.addEventListener(
     "DOMContentLoaded",
-    loadNavbar
+    function () {
+
+        loadNavbar();
+
+    }
 );
