@@ -109,7 +109,7 @@ async function loadNavbar() {
 
         logo.src =
             BASE_PATH +
-            "/assets/images/logo/logo.png";
+            "/assets/images/logo.png";
 
     }
 
