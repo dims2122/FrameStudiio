@@ -89,7 +89,7 @@ async function loadNavbar() {
             "pages/product.html",
 
         about:
-            "pages/tentang.html",
+            "pages/about.html",
 
         gallery:
             "pages/gallery.html",
@@ -97,8 +97,6 @@ async function loadNavbar() {
         review:
             "pages/reviewlist.html",
 
-        contact:
-            "pages/contact.html"
 
     };
 
