@@ -24,33 +24,45 @@ async function loadComponent(id, file) {
 
 async function loadNavbar() {
 
-    // Cek apakah sedang berada di folder pages
+    // ========================================
+    // BASE PATH GITHUB PAGES
+    // ========================================
+
+    const BASE_URL = "/FrameStudio/";
+
+    // Cek apakah sedang di dalam folder pages
     const isSubPage = window.location.pathname.includes("/pages/");
 
-    // Tentukan jalur berdasarkan posisi halaman
-    const basePath = isSubPage ? "../" : "";
+    // Path komponen navbar
+    const componentPath = isSubPage
+        ? "../components/navbar.html"
+        : "components/navbar.html";
 
-    // Load navbar
+
+    // ========================================
+    // LOAD NAVBAR
+    // ========================================
+
     await loadComponent(
         "navbar",
-        `${basePath}components/navbar.html`
+        componentPath
     );
 
 
-    // =========================
+    // ========================================
     // LOGO
-    // =========================
+    // ========================================
 
     const logo = document.querySelector("#navbar [data-logo]");
 
     if (logo) {
-        logo.src = `${basePath}assets/images/logo/logo.png`;
+        logo.src = BASE_URL + "assets/images/logo/logo.png";
     }
 
 
-    // =========================
+    // ========================================
     // LINK NAVBAR
-    // =========================
+    // ========================================
 
     const pages = {
 
@@ -62,7 +74,9 @@ async function loadNavbar() {
 
         gallery: "pages/gallery.html",
 
-        review: "pages/reviewlist.html"
+        review: "pages/reviewlist.html",
+
+        contact: "pages/contact.html"
 
     };
 
@@ -74,15 +88,15 @@ async function loadNavbar() {
             const page = link.dataset.page;
 
             if (pages[page]) {
-                link.href = basePath + pages[page];
+                link.href = BASE_URL + pages[page];
             }
 
         });
 
 
-    // =========================
-    // HAMBURGER
-    // =========================
+    // ========================================
+    // HAMBURGER MENU
+    // ========================================
 
     initializeNavbar();
 }
