@@ -66,7 +66,7 @@ const products = [
 
     {
         id: 5,
-        name: "Roster Geometris 05",
+        name: "Roster Geometris 07",
         category: "geometris",
         price: "Rp15.000",
         image: "../assets/images/Motif7.jpg",
@@ -76,7 +76,7 @@ const products = [
 
     {
         id: 5,
-        name: "Roster Geometris 05",
+        name: "Roster Geometris 08",
         category: "geometris",
         price: "Rp15.000",
         image: "../assets/images/Motif8.jpg",
@@ -86,7 +86,7 @@ const products = [
 
     {
         id: 5,
-        name: "Roster Geometris 05",
+        name: "Roster Geometris 09",
         category: "geometris",
         price: "Rp15.000",
         image: "../assets/images/Motif9.jpg",
@@ -96,7 +96,7 @@ const products = [
 
     {
         id: 5,
-        name: "Roster Geometris 05",
+        name: "Roster Geometris 10",
         category: "geometris",
         price: "Rp15.000",
         image: "../assets/images/Motif10.jpg",
@@ -106,7 +106,7 @@ const products = [
 
     {
         id: 5,
-        name: "Roster Geometris 05",
+        name: "Roster Geometris 11",
         category: "geometris",
         price: "Rp15.000",
         image: "../assets/images/Motif11.jpg",
@@ -116,7 +116,7 @@ const products = [
 
     {
         id: 5,
-        name: "Roster Geometris 05",
+        name: "Roster Geometris 12",
         category: "geometris",
         price: "Rp15.000",
         image: "../assets/images/Motif12.jpg",
@@ -126,7 +126,7 @@ const products = [
 
     {
         id: 5,
-        name: "Roster Geometris 05",
+        name: "Roster Geometris 13",
         category: "geometris",
         price: "Rp15.000",
         image: "../assets/images/Motif13.jpg",
@@ -136,7 +136,7 @@ const products = [
 
     {
         id: 5,
-        name: "Roster Geometris 05",
+        name: "Roster Geometris 14",
         category: "geometris",
         price: "Rp15.000",
         image: "../assets/images/Motif14.jpg",
@@ -146,7 +146,7 @@ const products = [
 
     {
         id: 5,
-        name: "Roster Geometris 05",
+        name: "Roster Geometris 15",
         category: "geometris",
         price: "Rp15.000",
         image: "../assets/images/Motif15.jpg",
@@ -156,7 +156,7 @@ const products = [
 
     {
         id: 5,
-        name: "Roster Geometris 05",
+        name: "Roster Geometris 16",
         category: "geometris",
         price: "Rp15.000",
         image: "../assets/images/Motif16.jpg",
@@ -166,7 +166,7 @@ const products = [
 
     {
         id: 5,
-        name: "Roster Geometris 05",
+        name: "Roster Geometris 17",
         category: "geometris",
         price: "Rp15.000",
         image: "../assets/images/Motif17.jpg",
@@ -176,7 +176,7 @@ const products = [
 
     {
         id: 5,
-        name: "Roster Geometris 05",
+        name: "Roster Geometris 001",
         category: "geometris",
         price: "Rp15.000",
         image: "../assets/images/MotifP1.jpg",
@@ -186,7 +186,7 @@ const products = [
 
     {
         id: 5,
-        name: "Roster Geometris 05",
+        name: "Roster Geometris 002",
         category: "geometris",
         price: "Rp15.000",
         image: "../assets/images/MotifP2.jpg",
