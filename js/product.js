@@ -272,7 +272,7 @@ function displayProducts(category = "all") {
                     </strong>
 
                     <a
-                        href="contact.html"
+                        href="kontak.html"
                         class="product-order">
                         Pesan →
                     </a>
