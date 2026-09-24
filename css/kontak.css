@@ -1,0 +1,832 @@
+/* =========================================================
+   KONTAK - ROSTER CILEGON
+========================================================= */
+
+:root {
+    --contact-brown: #a56735;
+    --contact-brown-dark: #8d542b;
+
+    --contact-bg: #f8f2e9;
+    --contact-bg-light: #fcf9f4;
+
+    --contact-text: #30251f;
+    --contact-muted: #75675d;
+
+    --contact-border: #e4d6c6;
+    --contact-white: #ffffff;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.contact-hero {
+    min-height: 560px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(248, 242, 233, 0.96),
+            rgba(252, 249, 244, 0.96)
+        );
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+/* Pola background */
+
+.contact-hero::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    opacity: 0.35;
+
+    background-image:
+        linear-gradient(
+            135deg,
+            rgba(165, 103, 53, 0.08) 25%,
+            transparent 25%
+        ),
+        linear-gradient(
+            315deg,
+            rgba(165, 103, 53, 0.05) 25%,
+            transparent 25%
+        );
+
+    background-size: 120px 120px;
+
+    pointer-events: none;
+}
+
+
+.contact-hero-container {
+    min-height: 560px;
+
+    display: grid;
+
+    grid-template-columns: 1.1fr 0.9fr;
+
+    align-items: center;
+
+    gap: 70px;
+
+    position: relative;
+
+    z-index: 1;
+}
+
+
+.contact-hero-content {
+    max-width: 650px;
+}
+
+
+.contact-label {
+    display: inline-block;
+
+    color: var(--contact-brown);
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 18px;
+}
+
+
+.contact-hero-content h1 {
+    font-size: clamp(42px, 5vw, 68px);
+
+    line-height: 1.08;
+
+    color: var(--contact-text);
+
+    margin: 0 0 25px;
+
+    font-weight: 800;
+}
+
+
+.contact-hero-content h1 span {
+    color: var(--contact-brown);
+}
+
+
+.contact-hero-content p {
+    max-width: 600px;
+
+    color: var(--contact-muted);
+
+    font-size: 17px;
+
+    line-height: 1.8;
+
+    margin: 0;
+}
+
+
+/* =========================================================
+   HERO IMAGE
+========================================================= */
+
+.contact-hero-image {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+}
+
+
+.contact-logo-box {
+    width: min(440px, 100%);
+
+    aspect-ratio: 1 / 1;
+
+    background: #eee2d4;
+
+    border-radius: 28px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 55px;
+
+    box-shadow:
+        0 25px 60px rgba(88, 59, 35, 0.12);
+}
+
+
+.contact-logo-box img {
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: contain;
+}
+
+
+/* =========================================================
+   INFORMASI KONTAK
+========================================================= */
+
+.contact-info-section {
+    padding: 100px 0;
+
+    background: var(--contact-bg-light);
+}
+
+
+.section-heading {
+    text-align: center;
+
+    max-width: 700px;
+
+    margin: 0 auto 55px;
+}
+
+
+.section-heading > span,
+.map-heading > span,
+.contact-cta-content > span {
+    display: block;
+
+    color: var(--contact-brown);
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 12px;
+}
+
+
+.section-heading h2 {
+    color: var(--contact-text);
+
+    font-size: clamp(30px, 4vw, 45px);
+
+    margin: 0 0 15px;
+
+    line-height: 1.2;
+}
+
+
+.section-heading p {
+    color: var(--contact-muted);
+
+    line-height: 1.7;
+
+    margin: 0;
+}
+
+
+/* =========================================================
+   CONTACT GRID
+========================================================= */
+
+.contact-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 22px;
+}
+
+
+.contact-card {
+    background: var(--contact-white);
+
+    border: 1px solid var(--contact-border);
+
+    border-radius: 22px;
+
+    padding: 30px;
+
+    display: flex;
+
+    gap: 22px;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+
+.contact-card:hover {
+    transform: translateY(-6px);
+
+    border-color: rgba(165, 103, 53, 0.35);
+
+    box-shadow:
+        0 18px 40px rgba(70, 45, 25, 0.10);
+}
+
+
+/* =========================================================
+   ICON
+========================================================= */
+
+.contact-card-icon {
+    width: 58px;
+    height: 58px;
+
+    min-width: 58px;
+
+    border-radius: 16px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 25px;
+}
+
+
+.whatsapp-icon {
+    background: #e4f8eb;
+    color: #20b95b;
+}
+
+
+.phone-icon {
+    background: #f7eadc;
+    color: var(--contact-brown);
+}
+
+
+.email-icon {
+    background: #f0e8df;
+    color: #76533a;
+}
+
+
+.location-icon {
+    background: #f7e4d8;
+    color: #a34f2c;
+}
+
+
+/* =========================================================
+   CONTACT CONTENT
+========================================================= */
+
+.contact-card-content {
+    flex: 1;
+}
+
+
+.contact-card-content > span {
+    color: var(--contact-brown);
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+
+.contact-card-content h3 {
+    color: var(--contact-text);
+
+    font-size: 22px;
+
+    margin: 7px 0 10px;
+}
+
+
+.contact-card-content p {
+    color: var(--contact-muted);
+
+    line-height: 1.65;
+
+    font-size: 14px;
+
+    margin: 0 0 18px;
+}
+
+
+.contact-card-content a {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color: var(--contact-brown);
+
+    text-decoration: none;
+
+    font-weight: 700;
+
+    font-size: 14px;
+
+    transition: gap 0.2s ease;
+}
+
+
+.contact-card-content a:hover {
+    gap: 13px;
+
+    color: var(--contact-brown-dark);
+}
+
+
+/* =========================================================
+   MAP
+========================================================= */
+
+.contact-map-section {
+    padding: 100px 0;
+
+    background: var(--contact-bg);
+}
+
+
+.map-heading {
+    text-align: center;
+
+    margin-bottom: 40px;
+}
+
+
+.map-heading h2 {
+    color: var(--contact-text);
+
+    font-size: clamp(30px, 4vw, 44px);
+
+    margin: 0 0 12px;
+}
+
+
+.map-heading p {
+    color: var(--contact-muted);
+
+    margin: 0;
+}
+
+
+.map-wrapper {
+    width: 100%;
+
+    height: 450px;
+
+    overflow: hidden;
+
+    border-radius: 25px;
+
+    border: 1px solid var(--contact-border);
+
+    box-shadow:
+        0 20px 45px rgba(70, 45, 25, 0.10);
+}
+
+
+.map-wrapper iframe {
+    width: 100%;
+
+    height: 100%;
+
+    border: 0;
+}
+
+
+/* =========================================================
+   JAM OPERASIONAL
+========================================================= */
+
+.opening-section {
+    padding: 90px 0;
+
+    background: var(--contact-bg-light);
+}
+
+
+.opening-container {
+    background: #3a2c24;
+
+    border-radius: 28px;
+
+    padding: 50px;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 60px;
+
+    align-items: center;
+
+    color: white;
+}
+
+
+.opening-text > span {
+    color: #d39a66;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+}
+
+
+.opening-text h2 {
+    font-size: 38px;
+
+    margin: 12px 0 15px;
+}
+
+
+.opening-text p {
+    color: #d8cec6;
+
+    line-height: 1.7;
+
+    max-width: 500px;
+
+    margin: 0;
+}
+
+
+/* =========================================================
+   OPENING LIST
+========================================================= */
+
+.opening-list {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 0;
+}
+
+
+.opening-item {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 18px 0;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+
+.opening-item:first-child {
+    padding-top: 0;
+}
+
+
+.opening-item:last-child {
+    border-bottom: none;
+
+    padding-bottom: 0;
+}
+
+
+.opening-item span {
+    color: #d8cec6;
+
+    font-size: 15px;
+}
+
+
+.opening-item strong {
+    color: white;
+
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.contact-cta {
+    padding: 110px 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f8f2e9,
+            #efe2d2
+        );
+
+    text-align: center;
+}
+
+
+.contact-cta-content {
+    max-width: 700px;
+
+    margin: auto;
+}
+
+
+.contact-cta-content h2 {
+    color: var(--contact-text);
+
+    font-size: clamp(32px, 4vw, 48px);
+
+    margin: 0 0 15px;
+}
+
+
+.contact-cta-content p {
+    color: var(--contact-muted);
+
+    font-size: 16px;
+
+    line-height: 1.7;
+
+    margin: 0 auto 30px;
+
+    max-width: 600px;
+}
+
+
+.contact-cta-button {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    background: var(--contact-brown);
+
+    color: white;
+
+    padding: 15px 25px;
+
+    border-radius: 10px;
+
+    text-decoration: none;
+
+    font-weight: 700;
+
+    transition: 0.3s;
+}
+
+
+.contact-cta-button:hover {
+    background: var(--contact-brown-dark);
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer {
+    background: #2c241f;
+
+    color: #d9d0c9;
+
+    padding: 28px 0;
+
+    text-align: center;
+}
+
+
+.footer p {
+    margin: 0;
+
+    font-size: 14px;
+}
+
+
+.footer strong {
+    color: white;
+}
+
+
+/* =========================================================
+   RESPONSIVE TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .contact-hero-container {
+        grid-template-columns: 1fr;
+
+        text-align: center;
+
+        padding-top: 70px;
+
+        padding-bottom: 70px;
+    }
+
+
+    .contact-hero-content {
+        margin: auto;
+    }
+
+
+    .contact-hero-content p {
+        margin: auto;
+    }
+
+
+    .contact-hero-image {
+        max-width: 400px;
+
+        width: 100%;
+
+        margin: auto;
+    }
+
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .opening-container {
+        grid-template-columns: 1fr;
+
+        gap: 40px;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE HP
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .contact-hero {
+        min-height: auto;
+    }
+
+
+    .contact-hero-container {
+        min-height: auto;
+
+        padding: 70px 20px;
+    }
+
+
+    .contact-hero-content h1 {
+        font-size: 40px;
+    }
+
+
+    .contact-hero-content p {
+        font-size: 15px;
+    }
+
+
+    .contact-logo-box {
+        padding: 35px;
+
+        border-radius: 22px;
+    }
+
+
+    .contact-info-section,
+    .contact-map-section {
+        padding: 70px 20px;
+    }
+
+
+    .section-heading {
+        margin-bottom: 40px;
+    }
+
+
+    .contact-card {
+        padding: 22px;
+
+        gap: 15px;
+
+        border-radius: 18px;
+    }
+
+
+    .contact-card-icon {
+        width: 48px;
+
+        min-width: 48px;
+
+        height: 48px;
+
+        font-size: 20px;
+
+        border-radius: 13px;
+    }
+
+
+    .contact-card-content h3 {
+        font-size: 19px;
+    }
+
+
+    .map-wrapper {
+        height: 350px;
+
+        border-radius: 18px;
+    }
+
+
+    .opening-section {
+        padding: 70px 20px;
+    }
+
+
+    .opening-container {
+        padding: 30px 24px;
+
+        border-radius: 22px;
+    }
+
+
+    .opening-text h2 {
+        font-size: 30px;
+    }
+
+
+    .opening-item {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 5px;
+    }
+
+
+    .contact-cta {
+        padding: 80px 20px;
+    }
+
+}
+
+.owner-icon {
+    background: #f3e4d3;
+    color: #9a6035;
+}

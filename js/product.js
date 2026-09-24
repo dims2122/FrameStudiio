@@ -8,7 +8,7 @@ const products = [
         id: 1,
         name: "Roster Minimalis 01",
         category: "minimalis",
-        price: "Rp15.000",
+       
         image: "../assets/images/Motif1.jpg",
         description:
             "Motif minimalis dengan tampilan sederhana dan modern."
@@ -18,7 +18,7 @@ const products = [
         id: 2,
         name: "Roster Geometris 02",
         category: "geometris",
-        price: "Rp15.000",
+       
         image: "../assets/images/Motif2.jpg",
         description:
             "Motif geometris yang cocok untuk fasad dan dinding."
@@ -28,7 +28,7 @@ const products = [
         id: 3,
         name: "Roster Klasik 03",
         category: "klasik",
-        price: "Rp15.000",
+        
         image: "../assets/images/Motif3.jpg",
         description:
             "Desain klasik untuk memberikan karakter pada bangunan."
@@ -38,7 +38,7 @@ const products = [
         id: 4,
         name: "Roster Minimalis 04",
         category: "minimalis",
-        price: "Rp15.000",
+        
         image: "../assets/images/Motif4.jpg",
         description:
             "Roster dengan desain simpel untuk rumah modern."
@@ -48,7 +48,7 @@ const products = [
         id: 5,
         name: "Roster Geometris 05",
         category: "geometris",
-        price: "Rp15.000",
+        
         image: "../assets/images/Motif5.jpg",
         description:
             "Pola geometris dengan tampilan tegas dan elegan."
@@ -58,137 +58,137 @@ const products = [
         id: 6,
         name: "Roster Klasik 06",
         category: "klasik",
-        price: "Rp15.000",
+        
         image: "../assets/images/Motif6.jpg",
         description:
             "Motif klasik yang cocok untuk teras dan area eksterior."
     },
 
     {
-        id: 5,
+        id: 7,
         name: "Roster Geometris 07",
         category: "geometris",
-        price: "Rp15.000",
+        
         image: "../assets/images/Motif7.jpg",
         description:
             "Pola geometris dengan tampilan tegas dan elegan."
     },
 
     {
-        id: 5,
+        id: 8,
         name: "Roster Geometris 08",
         category: "geometris",
-        price: "Rp15.000",
+        
         image: "../assets/images/Motif8.jpg",
         description:
             "Pola geometris dengan tampilan tegas dan elegan."
     },
 
     {
-        id: 5,
+        id: 9,
         name: "Roster Geometris 09",
         category: "geometris",
-        price: "Rp15.000",
+        
         image: "../assets/images/Motif9.jpg",
         description:
             "Pola geometris dengan tampilan tegas dan elegan."
     },
 
     {
-        id: 5,
+        id: 10,
         name: "Roster Geometris 10",
         category: "geometris",
-        price: "Rp15.000",
+        
         image: "../assets/images/Motif10.jpg",
         description:
             "Pola geometris dengan tampilan tegas dan elegan."
     },
 
     {
-        id: 5,
+        id: 11,
         name: "Roster Geometris 11",
         category: "geometris",
-        price: "Rp15.000",
+        
         image: "../assets/images/Motif11.jpg",
         description:
             "Pola geometris dengan tampilan tegas dan elegan."
     },
 
     {
-        id: 5,
+        id: 12,
         name: "Roster Geometris 12",
         category: "geometris",
-        price: "Rp15.000",
+     
         image: "../assets/images/Motif12.jpg",
         description:
             "Pola geometris dengan tampilan tegas dan elegan."
     },
 
     {
-        id: 5,
+        id: 13,
         name: "Roster Geometris 13",
         category: "geometris",
-        price: "Rp15.000",
+       
         image: "../assets/images/Motif13.jpg",
         description:
             "Pola geometris dengan tampilan tegas dan elegan."
     },
 
     {
-        id: 5,
+        id: 14,
         name: "Roster Geometris 14",
         category: "geometris",
-        price: "Rp15.000",
+       
         image: "../assets/images/Motif14.jpg",
         description:
             "Pola geometris dengan tampilan tegas dan elegan."
     },
 
     {
-        id: 5,
+        id: 15,
         name: "Roster Geometris 15",
         category: "geometris",
-        price: "Rp15.000",
+  
         image: "../assets/images/Motif15.jpg",
         description:
             "Pola geometris dengan tampilan tegas dan elegan."
     },
 
     {
-        id: 5,
+        id: 16,
         name: "Roster Geometris 16",
         category: "geometris",
-        price: "Rp15.000",
+        
         image: "../assets/images/Motif16.jpg",
         description:
             "Pola geometris dengan tampilan tegas dan elegan."
     },
 
     {
-        id: 5,
+        id: 17,
         name: "Roster Geometris 17",
         category: "geometris",
-        price: "Rp15.000",
+        
         image: "../assets/images/Motif17.jpg",
         description:
             "Pola geometris dengan tampilan tegas dan elegan."
     },
 
     {
-        id: 5,
+        id: 18,
         name: "Roster Geometris 001",
         category: "geometris",
-        price: "Rp15.000",
+        
         image: "../assets/images/MotifP1.jpg",
         description:
             "Pola geometris dengan tampilan tegas dan elegan."
     },
 
     {
-        id: 5,
+        id: 19,
         name: "Roster Geometris 002",
         category: "geometris",
-        price: "Rp15.000",
+        
         image: "../assets/images/MotifP2.jpg",
         description:
             "Pola geometris dengan tampilan tegas dan elegan."
